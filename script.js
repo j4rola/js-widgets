@@ -1,3 +1,5 @@
+//Clock
+
 const clock = document.getElementById('clock')
 
 function getCurrentTime() {
@@ -13,3 +15,33 @@ function runEverySecond() {
 }
 
 runEverySecond();
+
+
+//Copy to clipboard
+
+const copyButton = document.getElementById('copy-button') 
+const textArea1 = document.getElementById('textArea-1').innerHTML.toString()
+
+function addToClipboard(text) {
+    // Create a new textarea element
+    var textarea = document.createElement("textarea");
+  
+    // Set the value of the textarea to the desired text
+    textarea.value = text;
+  
+    // Append the textarea to the document
+    document.body.appendChild(textarea);
+  
+    // Select the text inside the textarea
+    textarea.select();
+  
+    // Execute the "copy" command to copy the selected text to the clipboard
+    document.execCommand("copy");
+  
+    // Remove the textarea from the document
+    document.body.removeChild(textarea);
+
+}
+
+const copyEvent = copyButton.addEventListener('click', () => addToClipboard(textArea1))
+
