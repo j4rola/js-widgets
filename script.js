@@ -41,6 +41,16 @@ function addToClipboard(text) {
     // Remove the textarea from the document
     document.body.removeChild(textarea);
 
+    // Show the copy tooltip
+    var copyTooltip = document.getElementById("copyTooltip");
+    copyTooltip.innerText = "Text copied!";
+    copyTooltip.style.display = "inline-block";
+  
+    // Hide the tooltip after a delay
+    setTimeout(function() {
+        copyTooltip.style.display = "none";
+    }, 1000);
+
 }
 
 const copyEvent = copyButton.addEventListener('click', () => addToClipboard(textArea1))
